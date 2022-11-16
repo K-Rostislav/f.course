@@ -323,6 +323,39 @@ body.no-scroll {
   max-width: 7.9375rem;
 }
 
+.decor_animate {
+  -webkit-animation-name: rotateDecor;
+          animation-name: rotateDecor;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes rotateDecor {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+}
+
+@keyframes rotateDecor {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+}
+
 .padding {
   padding: 6.25rem 0;
 }
@@ -379,7 +412,6 @@ body.no-scroll {
   transition: filter 0.4s;
   transition: filter 0.4s, -webkit-filter 0.4s;
   position: relative;
-  z-index: 1;
 }
 
 .logo_blur {

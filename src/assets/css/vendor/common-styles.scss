@@ -147,7 +147,22 @@
 
 .decor {
     max-width: rem(127);
-    @include adp('max-width', 127, 30)
+    @include adp('max-width', 127, 30);
+
+    &_animate {
+        animation-name: rotateDecor;
+        animation-duration: .7s;
+        animation-fill-mode: forwards;
+    
+        @keyframes rotateDecor {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(720deg);
+            }
+        }
+    }
 }
 
 .padding {

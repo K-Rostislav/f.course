@@ -40,9 +40,11 @@ const startDecor = document.querySelectorAll('.start__col-decor');
 const programLine = document.querySelector('.program__inner-line');
 const programItems = document.querySelectorAll('.program__inner-item');
 const programItemsDecor = document.querySelectorAll('.program__inner-item-decor');
+const decor = document.querySelectorAll('.decor');
 
 document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo(1, 1)
+
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
 
@@ -69,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 AOS.init({
     // Global settings:
