@@ -1,0 +1,33 @@
+.about-us {
+    padding: rem(200) 0 rem(100);
+    @include adp('padding-top', 200, 50);
+    @include adp('padding-bottom', 200, 50);
+}
+.about-us__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(140);
+    @include adp('gap', 140, 70, 1920, 1024);
+    @include adp('gap', 70, 40);
+    
+    @media (max-width: em(900)) {
+        grid-template-columns: 1fr;
+    }
+}
+.about-us__img {
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+.about-us__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(50);
+    padding-top: rem(40);
+    @include adp('padding-top', 40, 0, 1920, 1024);
+    @include adp('gap', 50, 20);
+}
+.about-us__desc {
+    line-height: rem(25.6);
+}

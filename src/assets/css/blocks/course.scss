@@ -1,0 +1,86 @@
+.course {
+    background-color: #121212;
+    padding: rem(45) 0;
+    margin-top: rem(-70);
+    z-index: 1;
+    position: relative;
+}
+.course__container {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: rem(40) rem(80);
+    @include adp('column-gap', 80, 10);
+
+    @media (max-width: em(900)) {
+        grid-template-columns: 1fr;
+    }
+}
+.course__button {
+    margin: 0 auto;
+    
+    @media (max-width: em(900)) {
+        grid-row: 3 / 4;
+    }
+}
+.course__students-total,
+.course__successfully {
+    display: flex;
+    gap: rem(30);
+
+    &:not(:last-child) {
+        margin-bottom: rem(15);
+    }
+
+    p:first-child {
+        color: rgb(122, 122, 122);
+    }
+    p:last-child {
+        margin-left: auto;
+        font-weight: 700;
+    }
+}
+.course__earned {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+}
+.course__earned-students {
+    display: flex;
+    gap: rem(30);
+
+    p:first-child {
+        color: rgb(122, 122, 122);
+    }
+    p:last-child {
+        font-weight: 700;
+
+        @media (max-width: em(900)) {
+            margin-left: auto;
+        }
+    }
+}
+.course__earned-line {
+    width: 100%;
+    background-color: white;
+    height: rem(6);
+    position: relative;
+
+    &::after {
+        content: "";
+        width: prc(440, 714);
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
+    }
+}
+.course__earned-money {
+    display: flex;
+    justify-content: space-between;
+
+    p{
+        opacity: .4;
+    }
+}

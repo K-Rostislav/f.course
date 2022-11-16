@@ -1,0 +1,33 @@
+.partners__title-block {
+    margin-bottom: rem(60);
+    @include adp('margin-bottom', 60, 30);
+}
+.partners__decor {
+    transform: rotate(180deg);
+}
+.partners__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: auto;
+    gap: rem(20);
+
+    &::-webkit-scrollbar {
+        height: 0;  
+    }
+}
+.partners__content-item {
+    padding: rem(30) 0;
+    @include adp('padding-top', 30, 0);
+    @include adp('padding-bottom', 30, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(300);
+    @include adp('width', 300, 125);
+}
+.partners__content-item-img {
+    max-width: 100%;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}

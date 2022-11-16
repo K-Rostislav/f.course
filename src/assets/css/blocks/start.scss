@@ -1,0 +1,97 @@
+.start__title-block {
+    margin-bottom: rem(20);
+}
+.start__desc {
+    color: rgb(122, 122, 122);
+    max-width: rem(410);
+    margin-bottom: rem(80);
+    @include adp('margin-bottom', 80, 50);
+}
+.start__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: auto;
+    &::-webkit-scrollbar {
+        height: 0;
+    }
+}
+.start__col {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(35);
+    width: rem(325);
+    @include adp('width', 325, 225);
+
+    &:nth-child(2n) {
+        .start__col-decor {
+            background: linear-gradient(-94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+        }
+    }
+
+    &:nth-child(1) {
+        .start__col-decor {
+            width: 0;
+            animation-delay: 0s;
+        }
+    }
+    &:nth-child(2) {
+        row-gap: rem(45);
+
+        .start__col-decor {
+            width: 0;
+            height: rem(60);
+            animation-delay: .5s;
+        }
+    }
+    &:nth-child(3) {
+        row-gap: rem(55);
+
+        .start__col-decor {
+            width: 0;
+            height: rem(40);
+            animation-delay: 1s;
+        }
+    }
+    &:nth-child(4) {
+        row-gap: rem(65);
+
+        .start__col-decor {
+            width: 0;
+            height: rem(20);
+            animation-delay: 1.5s;
+        }
+    }
+}
+.start__col-prc {
+    line-height: 140%;
+    font-size: rem(36);
+    font-weight: 700;
+    @include adp('font-size', 36, 32);
+}
+.start__col-decor {
+    width: 100%;
+    background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+    height: rem(80);
+
+    &_animate {
+        animation-name: start-col-decor-w;
+        animation-fill-mode: forwards;
+        animation-duration: .5s;
+    
+        @keyframes start-col-decor-w {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+    }
+}
+.start__col-desc {
+    font-size: rem(14);
+    color: rgb(122, 122, 122);
+    max-width: rem(310);
+    padding-right: rem(10);
+    line-height: 160%;
+}
