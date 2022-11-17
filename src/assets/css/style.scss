@@ -1,9 +1,9 @@
-@import "vendor/fonts";
 @import "vendor/reset";
+@import "vendor/fonts";
+@import "vendor/options";
 @import "vendor/mixins";
 
 body {
-    background-color: #FFFEFC;
     color: white;
     font-family: 'Roboto';
     background-image: url('@img/bgc.jpg');
@@ -13,6 +13,13 @@ body {
     &.no-scroll {
         overflow: hidden;
     }
+}
+
+.page {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .main {

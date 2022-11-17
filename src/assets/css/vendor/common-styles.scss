@@ -1,7 +1,7 @@
 .container {
-    max-width: rem(1330);
+    max-width: rem($container);
     width: 100%;
-    padding: 0 rem(15);
+    padding: 0 rem($padding);
     margin: 0 auto;
 }
 
@@ -148,21 +148,6 @@
 .decor {
     max-width: rem(127);
     @include adp('max-width', 127, 30);
-
-    &_animate {
-        animation-name: rotateDecor;
-        animation-duration: .7s;
-        animation-fill-mode: forwards;
-    
-        @keyframes rotateDecor {
-            0% {
-                transform: rotate(0);
-            }
-            100% {
-                transform: rotate(720deg);
-            }
-        }
-    }
 }
 
 .padding {

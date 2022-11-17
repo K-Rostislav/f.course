@@ -13,7 +13,7 @@
     @return $result;
 }
 
-@mixin adp($property, $max, $min, $container: 1300, $minWidth: 320) {
+@mixin adp($property, $max, $min, $container: $container, $minWidth: 320) {
     $container: $container;
     $minWidth: $minWidth;
 
