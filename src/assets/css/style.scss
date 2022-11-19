@@ -24,7 +24,7 @@ body {
 
 .main {
     transition: filter .4s;
-    
+
     &_blur {
         filter: blur(5px);
     }
@@ -35,9 +35,6 @@ body {
 *:after {
     box-sizing: border-box;
 }
-
-/* Common styles */
-@import "vendor/common-styles";
 
 /* Blocks */
 @import "blocks/header";
@@ -51,3 +48,5 @@ body {
 @import "blocks/teachers";
 @import "blocks/footer";
 
+/* Common styles */
+@import "vendor/common-styles";

@@ -12,7 +12,7 @@
         position: fixed;
         backdrop-filter: blur(30px);
         padding: rem(10) 0;
-        
+
         &::before {
             content: "";
             position: absolute;
@@ -25,6 +25,7 @@
         }
     }
 }
+
 .header__container {
     padding: 0 rem(40);
     @include adp('padding-right', 40, 15);
@@ -36,6 +37,7 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .logo {
     transition: filter .4s;
     position: relative;
@@ -44,16 +46,18 @@
         filter: blur(5px);
     }
 }
+
 .header__content {
     display: flex;
     column-gap: rem(300);
     @include adp('column-gap', 300, 30, 1920, 1100);
     align-items: center;
-    
+
     @media (max-width: em(1200)) {
         display: none;
     }
 }
+
 .header__list {
     display: flex;
     row-gap: rem(10);
@@ -62,6 +66,7 @@
     justify-content: flex-end;
     flex-wrap: wrap;
 }
+
 .header__list-item {
     a {
         color: white;
@@ -80,13 +85,14 @@
             transition: width .2s;
         }
 
-        &:hover { 
+        &:hover {
             &::after {
                 width: 100%;
             }
         }
     }
 }
+
 .header__burger-btn {
     display: none;
     width: rem(30);
@@ -101,10 +107,12 @@
             position: absolute;
             top: 50%;
         }
-        .header__burger-btn-line:nth-child(2n){
+
+        .header__burger-btn-line:nth-child(2n) {
             opacity: 0;
             top: 50%;
         }
+
         .header__burger-btn-line:last-child {
             transform: rotate(-45deg);
             position: absolute;
@@ -116,6 +124,7 @@
         display: flex;
     }
 }
+
 .header__burger-btn-line {
     display: block;
     width: 100%;
@@ -124,6 +133,7 @@
     transition: transform .2s;
     z-index: 1;
 }
+
 .burger {
     background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
     width: 50%;
@@ -135,7 +145,6 @@
     text-align: center;
     transform: translateX(100%);
     transition: transform .4s;
-    display: none;
 
     &_active {
         transform: translateX(0%);
@@ -144,13 +153,16 @@
     @media (max-width: em(1200)) {
         display: block;
     }
+
     @media (max-width: em(767)) {
         width: 70%;
     }
+
     @media (max-width: em(479)) {
         width: 100%;
     }
 }
+
 .burger__list {
     display: flex;
     flex-direction: column;
