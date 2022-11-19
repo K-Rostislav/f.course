@@ -3,6 +3,7 @@
     text-align: center;
     @include adp('margin-bottom', 120, 50);
 }
+
 .profession__content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -11,10 +12,12 @@
     @media (max-width: em(767)) {
         grid-template-columns: repeat(2, 1fr);
     }
+
     @media (max-width: em(479)) {
         grid-template-columns: 1fr;
     }
 }
+
 .profession__content-col {
     max-width: rem(350);
     text-align: center;
@@ -29,16 +32,21 @@
         }
     }
 }
+
 .profession__content-col-img {
     max-width: rem(100);
+    max-height: rem(100);
+    height: 100%;
     object-fit: contain;
     margin: 0 auto;
 }
+
 .profession__content-col-title {
     font-size: rem(24);
     font-weight: 500;
     line-height: 140%;
 }
+
 .profession__content-col-desc {
     color: rgb(122, 122, 122);
     line-height: 160%;

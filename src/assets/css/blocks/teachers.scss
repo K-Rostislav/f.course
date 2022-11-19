@@ -2,6 +2,7 @@
     margin-bottom: rem(115);
     @include adp('margin-bottom', 115, 50);
 }
+
 .teachers__inner {
     display: flex;
     justify-content: space-between;
@@ -12,25 +13,30 @@
         height: 0;
     }
 }
+
 .teachers__inner-item {
     min-width: rem(385);
     @include adp('min-width', 410, 220);
-    padding: rem(10) 0  ;
+    padding: rem(10) 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
+
 .teachers__inner-item-img {
     max-width: rem(190);
     max-height: rem(190);
     object-fit: cover;
     width: 100%;
+    height: 100%;
     margin-bottom: rem(40);
 }
+
 .teachers__inner-item-name {
     margin-bottom: rem(20);
 }
+
 .teachers__inner-item-desc {
     margin-bottom: rem(35);
 }

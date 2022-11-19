@@ -144,22 +144,10 @@
     position: fixed;
     text-align: center;
     transform: translateX(100%);
-    // transition: transform .4s;
+    transition: transform .4s;
 
     &_active {
-        animation-name: burger-open;
-        animation-fill-mode: forwards;
-        animation-duration: 400ms;
-
-        @keyframes burger-open {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(0);
-            }
-        }
+        transform: translateX(0%);
     }
 
     @media (max-width: em(1200)) {
