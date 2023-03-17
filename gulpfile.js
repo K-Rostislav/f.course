@@ -1,5 +1,5 @@
 import gulp from 'gulp'
-const {src, dest, series, parallel, watch} = gulp
+const { src, dest, series, parallel, watch } = gulp
 
 //============Плагины================================================================================
 import cleanCSS from 'gulp-clean-css'; //Компилятор
@@ -59,162 +59,164 @@ const path = {
 }
 
 //============Задачи==================================================================================
-function dell(){
+function dell() {
     return del(DIST)
 }
-function copyMinCss(){
+function copyMinCss() {
     return gulp.src(path.src.css)
-    .pipe(plumber(
-        notify.onError({
-            title: "CSS",
-            message: "Error: <%= error.message %>"
-        })
-    ))
-    .pipe(sass())
-    .pipe(less())
-    .pipe(groupMediaQueries())
-    .pipe(autoprefixer({
-        grid: true,
-        overrideBrowserslist: ["last 3 versions"],
-        cascade: true
-    }))
-    .pipe(replace(/@img\//g, '../img/'))
-    .pipe(concat('style.css'))
-    .pipe(webpcss({
-        webpClass: ".webp",
-        noWebpClass: ".no-webp"
-    }))
-    .pipe(gulp.dest(path.dist.css))
-    .pipe(concat('style.min.css'))
-    .pipe(cleanCSS())
-    .pipe(gulp.dest(path.dist.css))
-    .pipe(browsersync.stream());
+        .pipe(plumber(
+            notify.onError({
+                title: "CSS",
+                message: "Error: <%= error.message %>"
+            })
+        ))
+        .pipe(sass())
+        .pipe(less())
+        .pipe(groupMediaQueries())
+        .pipe(autoprefixer({
+            grid: true,
+            overrideBrowserslist: ["last 3 versions"],
+            cascade: false
+        }))
+        .pipe(replace(/@img\//g, '../img/'))
+        .pipe(concat('style.css'))
+        .pipe(webpcss({
+            webpClass: ".webp",
+            noWebpClass: ".no-webp"
+        }))
+        .pipe(concat('style.min.css'))
+        .pipe(cleanCSS())
+        .pipe(gulp.dest(path.dist.css))
+        .pipe(browsersync.stream());
 }
-function copyHTML(){
+function copyHTML() {
     return gulp.src(path.src.html)
-    .pipe(plumber(
-        notify.onError({
-            title: "HTML",
-            message: "Error: <%= error.message %>"
-        })
-    ))
-    .pipe(filesInclude())
-    .pipe(replace(/@img\//g, 'assets/img/'))
-    .pipe(webpHtmlNosvg())
-    .pipe(gulp.dest('dist'))
-    .pipe(browsersync.stream());
+        .pipe(plumber(
+            notify.onError({
+                title: "HTML",
+                message: "Error: <%= error.message %>"
+            })
+        ))
+        .pipe(filesInclude())
+        .pipe(replace(/@img\//g, 'assets/img/'))
+        .pipe(webpHtmlNosvg())
+        .pipe(gulp.dest('dist'))
+        .pipe(browsersync.stream());
 }
-function copyJS(){
-    return gulp.src('./src/assets/js/*.js')
-    .pipe(plumber(
-        notify.onError({
-            title: "JS",
-            message: "Error: <%= error.message %>"
-        })
-    ))
-    .pipe(gulp.dest(path.dist.js))
+function copyJS() {
+    return gulp.src(['./src/assets/js/*.js', './src/assets/js/vendor/*.js'])
+        .pipe(plumber(
+            notify.onError({
+                title: "JS",
+                message: "Error: <%= error.message %>"
+            })
+        ))
 
-    .pipe(uglify())
-    .pipe(concat('app.min.js'))
-    .pipe(gulp.dest(path.dist.js))
-    .pipe(browsersync.stream());
+        .pipe(uglify())
+        .pipe(concat('app.min.js'))
+        .pipe(gulp.dest(path.dist.js))
+        .pipe(browsersync.stream());
 }
-function browser(){
+function browser() {
     browsersync.init({
         server: {
-            baseDir: 'dist/' 
+            baseDir: 'dist/'
         },
         notify: false,
         port: 3000,
     })
 }
-function images(){
+function images() {
     return gulp.src(path.src.images)
-    .pipe(plumber(
-        notify.onError({
-            title: "IMAGES",
-            message: "Error: <%= error.message %>"
-        })
-    ))
-    .pipe(newer('dist/assets/img'))
-    .pipe(webp())
-    .pipe(gulp.dest('dist/assets/img'))
-    .pipe(gulp.src(path.src.images))
-    .pipe(newer('dist/assets/img'))
-    .pipe(imagemin({
-        progressive: true,
-        svgoPlugins: [{ removeViewBox: false}],
-        interlaced: true,
-        optimizationLevel: 3
-    }))
-    .pipe(gulp.dest('dist/assets/img'))
-    .pipe(gulp.src('src/assets/img/**/*.svg'))
-    .pipe(gulp.dest('dist/assets/img'))
-    .pipe(browsersync.stream())
+        .pipe(plumber(
+            notify.onError({
+                title: "IMAGES",
+                message: "Error: <%= error.message %>"
+            })
+        ))
+        .pipe(newer('dist/assets/img'))
+        .pipe(webp())
+        .pipe(gulp.dest('dist/assets/img'))
+        .pipe(gulp.src(path.src.images))
+        .pipe(newer('dist/assets/img'))
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{ removeViewBox: false }],
+            interlaced: true,
+            optimizationLevel: 3
+        }))
+        .pipe(gulp.dest('dist/assets/img'))
+        .pipe(gulp.src('src/assets/img/**/*.svg'))
+        .pipe(gulp.dest('dist/assets/img'))
+        .pipe(browsersync.stream())
 }
-function ttf(){
+function favicon() {
+    return gulp.src(`./*.{svg,png,ico}`)
+        .pipe(gulp.dest(`./dist`))
+}
+function ttf() {
     return gulp.src(`${path.src.assets}/fonts/*.otf`)
-    .pipe(plumber(
-        notify.onError({
-            title: "FONTS",
-            message: "Error: <%= error.message %>"
-        })
-    ))
-    .pipe(fonter({
-        formats: ['ttf']
-    }))
-    .pipe(gulp.dest(`${path.src.assets}/fonts`))
+        .pipe(plumber(
+            notify.onError({
+                title: "FONTS",
+                message: "Error: <%= error.message %>"
+            })
+        ))
+        .pipe(fonter({
+            formats: ['ttf']
+        }))
+        .pipe(gulp.dest(`${path.src.assets}/fonts`))
 }
-function woffWoff2(){
+function woffWoff2() {
     return gulp.src(`${path.src.assets}/fonts/*.ttf`)
-    .pipe(plumber(
-        notify.onError({
-            title: "FONTS",
-            message: "Error: <%= error.message %>"
-        })
-    ))
-    .pipe(fonter({
-        formats: ['woff']
-    }))
-    .pipe(gulp.dest(path.dist.fonts))
-    .pipe(gulp.src(`${path.src.assets}/fonts/*.ttf`))
-    .pipe(ttf2woff2())
-    .pipe(gulp.dest(path.dist.fonts))
-    .pipe(browsersync.stream());
+        .pipe(plumber(
+            notify.onError({
+                title: "FONTS",
+                message: "Error: <%= error.message %>"
+            })
+        ))
+        .pipe(fonter({
+            formats: ['woff']
+        }))
+        .pipe(gulp.dest(path.dist.fonts))
+        .pipe(gulp.src(`${path.src.assets}/fonts/*.ttf`))
+        .pipe(ttf2woff2())
+        .pipe(gulp.dest(path.dist.fonts))
+        .pipe(browsersync.stream());
 }
-function zip(){
+function zip() {
     del('./*.zip')
     return src(DIST)
-    .pipe(plumber(
-        notify.onError({
-            title: "ZIP",
-            message: "Error: <%= error.message %>"
-        })
-    ))
-    .pipe(zipPlugin('dist.zip'))
-    .pipe(gulp.dest('./'))
+        .pipe(plumber(
+            notify.onError({
+                title: "ZIP",
+                message: "Error: <%= error.message %>"
+            })
+        ))
+        .pipe(zipPlugin('dist.zip'))
+        .pipe(gulp.dest('./'))
 }
-function fontsIcon(){
-    return gulp.src('src/assets/iconFonts/fonts/*.*')
-    .pipe(gulp.dest(path.dist.iconFonts))
-    .pipe(browsersync.stream());
+function fontsIcon() {
+    return gulp.src('src/assets/iconFonts/fonts/*.*', { allowEmpty: true })
+        .pipe(gulp.dest(path.dist.iconFonts))
+        .pipe(browsersync.stream());
 }
-function fontsIconCss(){
-    return gulp.src('src/assets/iconFonts/iconFonts.css')
-    .pipe(gulp.dest(path.dist.css))
-    .pipe(browsersync.stream());
+function fontsIconCss() {
+    return gulp.src('src/assets/iconFonts/iconFonts.css', { allowEmpty: true })
+        .pipe(gulp.dest(path.dist.css))
+        .pipe(browsersync.stream());
 }
 
 const iconFonts = parallel(fontsIcon, fontsIconCss)
-const fonts = gulp.series(ttf , woffWoff2);
-const copyParallel = gulp.parallel(copyMinCss, images, copyJS, fonts, copyHTML, iconFonts);
+const fonts = gulp.series(ttf, woffWoff2);
+const copyParallel = gulp.parallel(copyMinCss, images, copyJS, fonts, copyHTML, iconFonts, favicon);
 export const deployZIP = gulp.series(dell, copyParallel, zip);
 
 const def = gulp.series(dell, copyParallel, gulp.parallel(watcher, browser));
 
 gulp.task('default', def);
 
-function watcher(){
+function watcher() {
     gulp.watch(path.watch.html, copyHTML);
     gulp.watch(path.watch.css, copyMinCss);
     gulp.watch(path.watch.images, images);

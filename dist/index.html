@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="assets/js/app.min.js" defer></script>
     <title>f.course</title>
 </head>
 
@@ -17,9 +19,9 @@
     <div class="page">
         <header class="header">
     <div class="header__container">
-        <img class="logo" src="assets/img/header/logo.svg" alt="">
+        <img class="logo" src="assets/img/header/logo.svg" alt="f.course">
         <div class="header__content">
-            <nav class="header__nav">
+            <nav class="header__nav" data-da="burger,1,1200">
                 <ul class="header__list">
                     <li class="header__list-item"><a href="">Главная</a></li>
                     <li class="header__list-item"><a href="">Курсы</a></li>
@@ -29,27 +31,24 @@
                     <li class="header__list-item"><a href="">Контакты</a></li>
                 </ul>
             </nav>
-            <button type="button" class="button-blue">Зайти в кабинет</button>
+            <button type="button" class="header__sign-in button-blue">Зайти в кабинет</button>
         </div>
-        <div class="header__burger-btn">
-            <span class="header__burger-btn-line"></span>
-            <span class="header__burger-btn-line"></span>
-            <span class="header__burger-btn-line"></span>
-        </div>
-        <div class="burger">
-            <nav class="burger__nav">
-                <ul class="burger__list">
-                    <li class="header__list-item"><a href="">Главная</a></li>
-                    <li class="header__list-item"><a href="">Курсы</a></li>
-                    <li class="header__list-item"><a href="">Расписание</a></li>
-                    <li class="header__list-item"><a href="">Преподаватели</a></li>
-                    <li class="header__list-item"><a href="">Рассылка</a></li>
-                    <li class="header__list-item"><a href="">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
+        <button class="burger-btn" type="button">
+            <span class="burger-btn__line"></span>
+            <span class="burger-btn__line"></span>
+            <span class="burger-btn__line"></span>
+        </button>
     </div>
 </header>
+<div class="burger">
+    <div class="burger__close-block">
+        <div class="burger__close close">
+            <span class="close__line"></span>
+            <span class="close__line"></span>
+        </div>
+    </div>
+</div>
+<div class="burger-background"></div>
         <main class="main">
             <!-- intro -------------------------------------------------------------------------------------------->
             <section class="intro">
@@ -61,22 +60,22 @@
                         </h1>
                         <div class="intro__time">
                             <div data-aos="fade-in" data-aos-duration="400" class="intro__time-item">
-                                <p>18</p>
+                                <p id="days">18</p>
                                 <p>Дней</p>
                             </div>
                             <div data-aos="fade-in" data-aos-duration="400" data-aos-delay="400"
                                 class="intro__time-item">
-                                <p>18</p>
+                                <p id="hours">18</p>
                                 <p>Часов</p>
                             </div>
                             <div data-aos="fade-in" data-aos-duration="400" data-aos-delay="200"
                                 class="intro__time-item">
-                                <p>18</p>
+                                <p id="minuts">18</p>
                                 <p>Минут</p>
                             </div>
                             <div data-aos="fade-in" data-aos-duration="400" data-aos-delay="600"
                                 class="intro__time-item">
-                                <p>18</p>
+                                <p id="seconds">18</p>
                                 <p>Секунд</p>
                             </div>
                         </div>
@@ -114,7 +113,7 @@
             <section class="about-us">
                 <div class="container about-us__container">
                     <img data-aos="fade-in" data-aos-duration="1500" class="about-us__img"
-                        src="assets/img/about-us/about-us.png" alt="">
+                        src="assets/img/about-us/about-us.png" alt="Чем мы занимаемся?">
                     <div class="about-us__content">
                         <h2 data-aos="fade-left" data-aos-duration="600" class="title">Чем мы занимаемся?</h2>
                         <p data-aos="fade-left" data-aos-duration="1000" class="about-us__desc">
@@ -376,22 +375,22 @@
     <div data-aos="fade-in" data-aos-duration="1500" class="footer__content">
         <h2 class="title footer__title">Статьи каждую неделю</h2>
         <p class="footer__desc">Больше 90% учеников прошли полный курс и смогли собрать свой первый компьютер</p>
-        <form class="footer__form" method="POST" action="#">
-            <input class="footer__email" tabindex="1" placeholder="E-mail" type="email">
+        <form class="footer__form" id="form" method="POST" action="#">
+            <div class="input-block">
+                <input class="input-block__input" tabindex="1" placeholder="E-mail" type="email">
+                <p class="error">Введите валидный e-mail</p>
+            </div>
             <button class="button-red footer__submit" tabindex="2" type="submit">Подписаться</button>
         </form>
         <div class="footer__social">
-            <a class="_icon-vk" tabindex="3" target="_blank" href=""></a>
-            <a class="_icon-youtube" tabindex="4" target="_blank" href=""></a>
-            <a class="_icon-facebook" tabindex="5" target="_blank" href=""></a>
-            <a class="_icon-instagram" tabindex="6" target="_blank" href=""></a>
+            <a class="_icon-vk" aria-label="vk" tabindex="3" target="_blank" href=""></a>
+            <a class="_icon-youtube" aria-label="youtube" tabindex="4" target="_blank" href=""></a>
+            <a class="_icon-facebook" aria-label="facebook" tabindex="5" target="_blank" href=""></a>
+            <a class="_icon-instagram" aria-label="инстаграмм" tabindex="6" target="_blank" href=""></a>
         </div>
     </div>
 </footer>
     </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="assets/js/app.js"></script>
 </body>
 
 </html>

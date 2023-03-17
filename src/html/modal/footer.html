@@ -2,15 +2,18 @@
     <div data-aos="fade-in" data-aos-duration="1500" class="footer__content">
         <h2 class="title footer__title">Статьи каждую неделю</h2>
         <p class="footer__desc">Больше 90% учеников прошли полный курс и смогли собрать свой первый компьютер</p>
-        <form class="footer__form" method="POST" action="#">
-            <input class="footer__email" tabindex="1" placeholder="E-mail" type="email">
+        <form class="footer__form" id="form" method="POST" action="#">
+            <div class="input-block">
+                <input class="input-block__input" tabindex="1" placeholder="E-mail" type="email">
+                <p class="error">Введите валидный e-mail</p>
+            </div>
             <button class="button-red footer__submit" tabindex="2" type="submit">Подписаться</button>
         </form>
         <div class="footer__social">
-            <a class="_icon-vk" tabindex="3" target="_blank" href=""></a>
-            <a class="_icon-youtube" tabindex="4" target="_blank" href=""></a>
-            <a class="_icon-facebook" tabindex="5" target="_blank" href=""></a>
-            <a class="_icon-instagram" tabindex="6" target="_blank" href=""></a>
+            <a class="_icon-vk" aria-label="vk" tabindex="3" target="_blank" href=""></a>
+            <a class="_icon-youtube" aria-label="youtube" tabindex="4" target="_blank" href=""></a>
+            <a class="_icon-facebook" aria-label="facebook" tabindex="5" target="_blank" href=""></a>
+            <a class="_icon-instagram" aria-label="инстаграмм" tabindex="6" target="_blank" href=""></a>
         </div>
     </div>
 </footer>

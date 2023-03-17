@@ -24,7 +24,6 @@
 .footer__form {
     margin-bottom: rem(40);
     display: flex;
-    align-items: center;
     row-gap: rem(10);
 
     @media (max-width: em(479)) {
@@ -34,30 +33,12 @@
     }
 }
 
-.footer__email {
-    background-color: rgb(60, 60, 60);
-    opacity: .6;
-    border: 0;
-    border-radius: rem(50);
-    padding: rem(15) rem(30);
-    width: rem(320);
-
-    &:focus {
-        outline: 2px solid #DF5950;
-        outline-offset: -1px;
-    }
-
-    &::placeholder {
-        color: white;
-    }
-
-    @media (max-width: em(479)) {
-        width: 100%;
-    }
-}
-
 .footer__submit {
     margin-left: rem(-50);
+    padding: 0 rem(30);
+    @media (max-width: em(479)) {
+        padding: rem(15) rem(30);
+    }
 }
 
 .footer__social {
@@ -70,7 +51,7 @@
         width: rem(50);
         height: rem(50);
         border-radius: 50%;
-        background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+        background: $social;
         display: flex;
         justify-content: center;
         align-items: center;

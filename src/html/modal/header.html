@@ -1,8 +1,8 @@
 <header class="header">
     <div class="header__container">
-        <img class="logo" src="@img/header/logo.svg" alt="">
+        <img class="logo" src="@img/header/logo.svg" alt="f.course">
         <div class="header__content">
-            <nav class="header__nav">
+            <nav class="header__nav" data-da="burger,1,1200">
                 <ul class="header__list">
                     <li class="header__list-item"><a href="">Главная</a></li>
                     <li class="header__list-item"><a href="">Курсы</a></li>
@@ -12,24 +12,21 @@
                     <li class="header__list-item"><a href="">Контакты</a></li>
                 </ul>
             </nav>
-            <button type="button" class="button-blue">Зайти в кабинет</button>
+            <button type="button" class="header__sign-in button-blue">Зайти в кабинет</button>
         </div>
-        <div class="header__burger-btn">
-            <span class="header__burger-btn-line"></span>
-            <span class="header__burger-btn-line"></span>
-            <span class="header__burger-btn-line"></span>
-        </div>
-        <div class="burger">
-            <nav class="burger__nav">
-                <ul class="burger__list">
-                    <li class="header__list-item"><a href="">Главная</a></li>
-                    <li class="header__list-item"><a href="">Курсы</a></li>
-                    <li class="header__list-item"><a href="">Расписание</a></li>
-                    <li class="header__list-item"><a href="">Преподаватели</a></li>
-                    <li class="header__list-item"><a href="">Рассылка</a></li>
-                    <li class="header__list-item"><a href="">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
+        <button class="burger-btn" type="button">
+            <span class="burger-btn__line"></span>
+            <span class="burger-btn__line"></span>
+            <span class="burger-btn__line"></span>
+        </button>
     </div>
 </header>
+<div class="burger">
+    <div class="burger__close-block">
+        <div class="burger__close close">
+            <span class="close__line"></span>
+            <span class="close__line"></span>
+        </div>
+    </div>
+</div>
+<div class="burger-background"></div>

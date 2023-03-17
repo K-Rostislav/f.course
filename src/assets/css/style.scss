@@ -1,14 +1,15 @@
 @import "vendor/reset";
+@import "vendor/_vars";
 @import "vendor/fonts";
 @import "vendor/options";
 @import "vendor/mixins";
 
 body {
-    color: white;
+    color: $text;
     font-family: 'Roboto';
     background-image: url('@img/bgc.jpg');
     background-size: none;
-    background-color: black;
+    background-color: $black;
 
     &.no-scroll {
         overflow: hidden;
